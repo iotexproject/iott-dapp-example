@@ -1,0 +1,99 @@
+specVersion: 0.0.2
+description: pebble subgraph
+repository: https://github.com/iotexproject/pebble_subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Application
+    network: mainnet
+    source:
+      address: {{APP_CONTRACT}}
+      abi: Application
+      startBlock: {{START_HEIGHT}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/app.ts
+      entities:
+        - Application
+      abis:
+        - name: Application
+          file: ./abis/Application.json
+      eventHandlers:
+        - event: FirmwareUpdated(string,string,string,string)
+          handler: onFirmwareUpdated
+  - kind: ethereum/contract
+    name: Bank
+    network: mainnet
+    source:
+      address: {{BANK_CONTRACT}}
+      abi: Bank
+      startBlock: {{START_HEIGHT}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/bank.ts
+      entities:
+        - BankRecord
+      abis:
+        - name: Bank
+          file: ./abis/Bank.json
+      eventHandlers:
+        - event: Deposit(indexed address,uint256)
+          handler: onDeposit
+        - event: Withdraw(indexed address,indexed address,uint256)
+          handler: onWithdraw
+        - event: Paid(indexed address,indexed address,uint256)
+          handler: onPaid
+  - kind: ethereum/contract
+    name: Pebble
+    network: mainnet
+    source:
+      address: {{PEBBLE_CONTRACT}}
+      abi: Pebble
+      startBlock: {{START_HEIGHT}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/pebble.ts
+      entities:
+        - Device
+        - DeviceRecord
+      abis:
+        - name: Pebble
+          file: ./abis/Pebble.json
+      eventHandlers:
+        - event: Proposal(string,address,address,string,string)
+          handler: onProposal
+        - event: Remove(string,address)
+          handler: onRemove
+        - event: Confirm(string,address,address,uint32)
+          handler: onConfirm
+        - event: Data(string,address,uint32,bytes,uint32,bytes,uint256)
+          handler: onData
+        - event: Firmware(string,string)
+          handler: onFirmware
+  - kind: ethereum/contract
+    name: Account
+    network: mainnet
+    source:
+      address: {{ACCOUNT_CONTRACT}}
+      abi: Account
+      startBlock: {{START_HEIGHT}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/account.ts
+      entities:
+        - Account
+      abis:
+        - name: Account
+          file: ./abis/Account.json
+      eventHandlers:
+        - event: Updated(address,string,string)
+          handler: onUpdated

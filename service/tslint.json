@@ -1,0 +1,27 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest"],
+  "jsRules": {},
+  "rules": {
+    "quotemark": [true, "single", "jsx-double"],
+    "no-implicit-dependencies": [
+      true,
+      "dev",
+      ["@controller", "@service", "@models", "@store", "@common", "@config", "@routes", "@middlewares", "@lib"]
+    ],
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "variable-name": false,
+    "arrow-parens": false,
+    "no-submodule-imports": false,
+    "no-console": false,
+    "only-arrow-functions": false,
+    "no-empty-interface": false,
+    "curly": false,
+    "member-ordering": false,
+    "object-literal-key-quotes": false,
+    "interface-over-type-literal": false
+  },
+  "rulesDirectory": []
+}

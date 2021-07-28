@@ -1,0 +1,84 @@
+type Application @entity {
+  id: ID!
+
+  "Version"
+  version: String!
+
+  "Uri"
+  uri: String!
+
+  "Avatar"
+  avatar: String!
+}
+
+type BankRecord @entity {
+  id: ID!
+
+  "From"
+  from: String!
+
+  "To"
+  to: String!
+
+  "Amount"
+  amount: BigInt!
+
+  "Type"
+  type: Int!
+}
+
+type Device @entity {
+  id: ID!
+
+  owner: String
+
+  address: String
+
+  name: String!
+
+  avatar: String!
+
+  proposer: String
+
+  firmware: String!
+
+  totalGas: BigInt!
+
+  type: Int!
+
+  config: Bytes
+
+  state: Bytes
+
+  status: Int!
+
+  data: Bytes
+
+  lastDataTime: BigInt
+}
+
+type DeviceRecord @entity {
+  id: ID!
+
+  imei: String!
+
+  operator: String!
+
+  gas: BigInt!
+  
+  realGas: BigInt!
+
+  raw: Bytes!
+
+  timestamp: BigInt!
+
+  signature: Bytes!
+}
+
+type Account @entity {
+  id: ID!
+
+  name: String!
+
+  avatar: String!
+}
