@@ -18,7 +18,6 @@ export const NODE_ENV = env.NODE_ENV;
 
 export const PROJECT = get('PROJECT', 'iott-dapp-example');
 
-
 export const SYSLOG_HOST = get('SYSLOGD_HOST');
 export const SYSLOG_PORT = getNumber('SYSLOGD_PORT', 514);
 export const SYSLOG_PROTOCOL = get('SYSLOGD_PROTOCOL', 'U');
@@ -26,7 +25,5 @@ export const SYSLOG_TAG = get('SYSLOGD_TAG', `${PROJECT}`);
 
 export const LOG_LEVEL = get('LOG_LEVEL', 'error');
 export const ETH_ENDPOINT = get('ETH_ENDPOINT');
-export const PRIVATE_KEY = get('PRIVATE_KEY');
-export const ADDRESS = privateKeyToAddress(PRIVATE_KEY);
 export const START_HEIGHT = getNumber('START_HEIGHT', 0);
 export const PEBBLE_CONTRACT = get('PEBBLE_CONTRACT');

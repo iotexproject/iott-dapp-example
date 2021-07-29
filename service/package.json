@@ -4,7 +4,7 @@
   "description": "xxx server",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/api.js",
+    "start": "node dist/daemon/bc.js",
     "debug": "export NODE_ENV=development && npm run build && npm run start",
     "test": "mocha './dist/**/*.test.js'",
     "prettier": "prettier --write \"src/**/*.ts\"",
