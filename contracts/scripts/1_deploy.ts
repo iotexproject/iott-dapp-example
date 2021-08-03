@@ -48,7 +48,7 @@ async function main() {
   const token = await Token.deploy('PBG', 'PBG', 18)
   await token.deployed()
 
-  tx = await token.mint(pebble.address, new BN("100000000000000000000000000"))
+  tx = await token.mint(pebble.address, new BN("100000000000000000000000000").toString())
   await tx.wait()
 
   tx = await pebble.setToken(token.address)
