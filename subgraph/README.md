@@ -30,8 +30,14 @@ cp ../contracts/config . -r
 
 ### 2.2. Prepare
 
+for testnet,
 ```
 npm run preapre:testnet
+```
+
+for mainnet,
+```
+npm run preapre
 ```
 
 ### 2.3. Codegen
@@ -40,17 +46,32 @@ npm run preapre:testnet
 npm run codegen
 ```
 
-## 3. Deploy
+## 3. Deploy Locally
 
 ### 3.1. Create subgraph project
 
 ```
-npm run create
+npm run create-local
 ```
 
 ### 3.2. Deploy to local the graph node
 
 ```
 npm run deploy-local
+```
+
+## 4. Deploy to mainnet
+
+
+### 4.1. Create subgraph project
+
+```
+npm run create
+```
+
+### 4.2. Deploy the graph node of iotex mainnet
+
+```
+npm run deploy
 ```
 

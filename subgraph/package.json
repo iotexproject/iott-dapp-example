@@ -6,9 +6,11 @@
   "scripts": {
     "codegen": "graph codegen --output-dir src/types",
     "prepare:testnet": "mustache config/4690.json subgraph.template.yaml > subgraph.yaml",
+    "prepare": "mustache config/4689.json subgraph.template.yaml > subgraph.yaml",
     "build": "graph build",
-    "create": "graph create iotex/iott-example-subgraph --node http://127.0.0.1:8020",
-    "deploy": "graph deploy iotex/iott-example-subgraph --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/",
+    "create": "graph create iotex/iott-example-subgraph --node https://rpc.graph.mainnet.iotex.io/",
+    "deploy": "graph deploy iotex/iott-example-subgraph --node https://rpc.graph.mainnet.iotex.io/ --ipfs https://graph.mainnet.iotex.io/",
+    "create-local": "graph create iotex/iott-example-subgraph --node http://127.0.0.1:8020",
     "deploy-local": "graph deploy iotex/iott-example-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
