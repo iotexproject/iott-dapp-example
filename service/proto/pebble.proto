@@ -4,8 +4,8 @@ message SensorData
 {
  optional uint32 snr = 1;
  optional uint32 vbat = 2;
- optional uint32 latitude = 3;
- optional uint32 longitude = 4;
+ optional int32 latitude = 3;
+ optional int32 longitude = 4;
  optional uint32 gasResistance = 5;
  optional uint32 temperature = 6;
  optional uint32 pressure = 7;
